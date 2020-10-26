@@ -1,4 +1,5 @@
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+import tensorflow as ttf
 from abc import abstractmethod
 import numpy as np
 
@@ -58,7 +59,7 @@ class SumAggregator(Aggregator):
 
         with tf.variable_scope(self.name):
             self.weights = tf.get_variable(
-                shape=[self.dim, self.dim], initializer=tf.contrib.layers.xavier_initializer(), name='weights')
+                shape=[self.dim, self.dim], initializer=ttf.contrib.layers.xavier_initializer(), name='weights')
             self.bias = tf.get_variable(shape=[self.dim], initializer=tf.zeros_initializer(), name='bias')
 
     def _call(self, self_vectors, neighbor_vectors):
@@ -82,7 +83,7 @@ class ConcatAggregator(Aggregator):
 
         with tf.variable_scope(self.name):
             self.weights = tf.get_variable(
-                shape=[self.dim * 2, self.dim], initializer=tf.contrib.layers.xavier_initializer(), name='weights')
+                shape=[self.dim * 2, self.dim], initializer=ttf.contrib.layers.xavier_initializer(), name='weights')
             self.bias = tf.get_variable(shape=[self.dim], initializer=tf.zeros_initializer(), name='bias')
 
     def _call(self, self_vectors, neighbor_vectors):
@@ -111,7 +112,7 @@ class NeighborAggregator(Aggregator):
 
         with tf.variable_scope(self.name):
             self.weights = tf.get_variable(
-                shape=[self.dim, self.dim], initializer=tf.contrib.layers.xavier_initializer(), name='weights')
+                shape=[self.dim, self.dim], initializer=ttf.contrib.layers.xavier_initializer(), name='weights')
             self.bias = tf.get_variable(shape=[self.dim], initializer=tf.zeros_initializer(), name='bias')
 
     def _call(self, self_vectors, neighbor_vectors):

@@ -1,4 +1,5 @@
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+import tensorflow as ttf
 import os
 import numpy as np
 import pandas as pd

@@ -1,4 +1,5 @@
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+import tensorflow as ttf
 import numpy as np
 from sklearn.metrics import f1_score, roc_auc_score, precision_score, recall_score
 from aggregators import SumAggregator, ConcatAggregator, NeighborAggregator, RoutingLayer
